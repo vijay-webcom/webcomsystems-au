@@ -10,14 +10,27 @@ import {
     MenubarSubTrigger,
     MenubarTrigger,
 } from "@/components/ui/menubar"
+import {
+    Sheet,
+    SheetContent,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet"
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
 import { ChevronDown } from "lucide-react"
 import Image from "next/image"
 import cn from 'clsx';
-
 import { motion, useScroll, useMotionValueEvent } from "motion/react"
 import { useState } from "react"
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { FiMenu } from "react-icons/fi";
 import Link from "next/link";
 
 export function MenubarDemo() {
@@ -72,19 +85,19 @@ export function MenubarDemo() {
                             url: "/blockchain-exchange-platform/",
                         },
                         {
-                            name: "Blockchain in Healthcare/",
+                            name: "Blockchain in Healthcare",
                             url: "/blockchain-in-healthcare/",
                         },
                         {
-                            name: "Blockchain in Agriculture/",
+                            name: "Blockchain in Agriculture",
                             url: "/blockchain-in-agriculture/",
                         },
                         {
-                            name: "Blockchain Consulting Company/",
+                            name: "Blockchain Consulting Company",
                             url: "/blockchain-consulting-company/",
                         },
                         {
-                            name: "Ethereum Blockchain development Company/",
+                            name: "Ethereum Blockchain development Company",
                             url: "/ethereum-blockchain-development-company/",
                         },
                     ]
@@ -102,7 +115,7 @@ export function MenubarDemo() {
                     url: "/metaverse-development-services/",
                 },
                 {
-                    name: "Dapps Development Company/",
+                    name: "Dapps Development Company",
                     url: "/dapps-development-company/",
                 },
                 {
@@ -122,7 +135,7 @@ export function MenubarDemo() {
                     url: "/smart-contract-audit-company/",
                 },
                 {
-                    name: "Solidity Development Company/",
+                    name: "Solidity Development Company",
                     url: "/solidity-development-company/",
                 },
             ]
@@ -262,35 +275,39 @@ export function MenubarDemo() {
 
     return (
         <>
-            <div className="bg-black py-2">
+            {/* Topbar UI */}
+            <div className="bg-black py-2 px-2 md:px-0">
                 <div className="container mx-auto flex justify-between align-center">
                     <div className="flex justify-between align-center gap-2">
-                        <div className="opacity-40 h-full mt-1">
-                            <Image src={"/au.png"} alt="AU" width={34} height={20} />
+                        <div className="opacity-40 h-full mt-1 size-7 md:size-9">
+                            <Image src={"/au.png"} alt="AU" width={50} height={50} />
                         </div>
                         <div>
-                            <p className="text-sm text-[#00bfa5] leading-tighter font-semibold">
+                            <p className="text-xs md:text-sm text-[#00bfa5] leading-tighter font-semibold">
                                 Call us at:
                             </p>
-                            <p className="text-sm text-white leading-tighter">
+                            <p className="text-xs md:text-sm text-white leading-tighter">
                                 +61 490 820 818
                             </p>
                         </div>
                     </div>
                     <div className="flex justify-between align-center gap-2">
-                        <FaFacebookF className="text-[#00bfa5] bg-white/10 rounded-full p-2 hover:bg-[#00bfa5] hover:text-white transition-all transition-2s ease-in" size={30} />
-                        <FaXTwitter className="text-[#00bfa5] bg-white/10 rounded-full p-2 hover:bg-[#00bfa5] hover:text-white transition-all transition-2s ease-in" size={30} />
-                        <FaInstagram className="text-[#00bfa5] bg-white/10 rounded-full p-2 hover:bg-[#00bfa5] hover:text-white transition-all transition-2s ease-in" size={30} />
-                        <FaPinterest className="text-[#00bfa5] bg-white/10 rounded-full p-2 hover:bg-[#00bfa5] hover:text-white transition-all transition-2s ease-in" size={30} />
-                        <FaLinkedinIn className="text-[#00bfa5] bg-white/10 rounded-full p-2 hover:bg-[#00bfa5] hover:text-white transition-all transition-2s ease-in" size={30} />
+                        <FaFacebookF className="text-[#00bfa5] bg-white/10 rounded-full p-2 size-7 md:size-8 hover:bg-[#00bfa5] hover:text-white transition-all transition-2s ease-in" size={30} />
+                        <FaXTwitter className="text-[#00bfa5] bg-white/10 rounded-full p-2 size-7 md:size-8 hover:bg-[#00bfa5] hover:text-white transition-all transition-2s ease-in" size={30} />
+                        <FaInstagram className="text-[#00bfa5] bg-white/10 rounded-full p-2 size-7 md:size-8 hover:bg-[#00bfa5] hover:text-white transition-all transition-2s ease-in" size={30} />
+                        <FaPinterest className="text-[#00bfa5] bg-white/10 rounded-full p-2 size-7 md:size-8 hover:bg-[#00bfa5] hover:text-white transition-all transition-2s ease-in" size={30} />
+                        <FaLinkedinIn className="text-[#00bfa5] bg-white/10 rounded-full p-2 size-7 md:size-8 hover:bg-[#00bfa5] hover:text-white transition-all transition-2s ease-in" size={30} />
                     </div>
                 </div>
             </div>
 
-            <motion.div transition={{ duration: 0.2 }} className={cn("py-4 border-b border-white/10 w-full", isNavSticky ? "bg-white fixed top-0" : "absolute top-14 bg-transparent")}>
+            {/* Website Header */}
+            <motion.div transition={{ duration: 0.2 }} className={cn("py-2 md:py-4 px-2 md:px-0 border-b border-white/10 w-full z-10", isNavSticky ? "bg-white fixed top-0" : "absolute top-12 md:top-14 bg-transparent")}>
                 <div className="container mx-auto flex justify-between align-center gap-4">
-                    <Image src={isNavSticky ? "/logo.png" : "/logo-white.png"} alt="logo" width={150} height={24} />
-                    <Menubar>
+                    <div className="w-30 md:w-38">
+                        <Image src={isNavSticky ? "/logo.png" : "/logo-white.png"} alt="logo" width={200} height={200} />
+                    </div>
+                    <Menubar className="hidden lg:flex">
                         {
                             navLinks.map((link) => (
                                 <MenubarMenu key={link.name}>
@@ -325,7 +342,7 @@ export function MenubarDemo() {
                                                     }
 
                                                     return (
-                                                        <MenubarItem key={subLink.name} className={cn("cursor-pointer text-sm border-b border-black/20 rounded-none py-2")}>
+                                                        <MenubarItem key={subLink.name} className={cn("cursor-pointer text-sm font border-b border-black/20 rounded-none py-2")}>
                                                             <Link href={subLink.url}>{subLink.name}</Link>
                                                         </MenubarItem>
                                                     )
@@ -338,7 +355,61 @@ export function MenubarDemo() {
                         }
                     </Menubar>
                 </div>
-            </motion.div >
+            </motion.div>
+
+            {/* Mobile Header */}
+            <div className="block lg:hidden">
+                <Sheet key={"left"} >
+                    <div className="relative container mx-auto">
+                        <SheetTrigger asChild className="absolute top-3 md:top-6 right-2 md:right-0">
+                            <FiMenu size={25} className={cn("z-11", isNavSticky ? "text-black fixed top-0 " : "text-white")} />
+                        </SheetTrigger>
+                        <SheetContent
+                            side="left"
+                            className="data-[side=bottom]:max-h-[50vh] data-[side=top]:max-h-[50vh] bg-[#154377] text-white"
+                        >
+                            <SheetHeader className="border-b border-white/10">
+                                <SheetTitle>
+                                    <Image className="w-30 md:w-38" src="/logo-white.png" alt="logo" width={150} height={100} />
+                                </SheetTitle>
+                            </SheetHeader>
+                            <div className="no-scrollbar overflow-y-auto">
+                                {
+                                    navLinks.map((link) => (
+                                        <div key={link.name} className="flex flex-col gap-2">
+                                            {
+                                                link?.subLinks ? (
+                                                    <Accordion
+                                                        type="single"
+                                                        collapsible
+                                                        defaultValue="shipping"
+                                                        className="max-w-full md:max-w-lg"
+                                                    >
+                                                        <AccordionItem value="shipping">
+                                                            <AccordionTrigger className="text-white border-b border-white/20 font-semibold text-sm md:text-md transition-all leading-tight duration-300 hover:text-neutral-100 py-3 md:py-4 px-2 md:px-5 outline-none focus:outline-0 rounded-none">{link.name}</AccordionTrigger>
+                                                            <AccordionContent className="flex flex-col p-0">
+                                                                {
+                                                                    link?.subLinks?.map((subLink) => (
+                                                                        <Link href={subLink.url} key={subLink.name} className="text-neutral-300 border-b border-white/10 font-medium text-xs md:text-sm transition-all leading-tight duration-300 hover:text-neutral-100 py-2 px-3 md:px-6 bg-[#0b254254]">
+                                                                            {subLink.name}
+                                                                        </Link>
+                                                                    ))
+                                                                }
+                                                            </AccordionContent>
+                                                        </AccordionItem>
+                                                    </Accordion>
+                                                ) : <Link href={link.url} className="text-white border-b border-white/20 font-semibold text-sm md:text-md transition-all leading-tight duration-300 hover:text-neutral-100 py-3 md:py-4 px-2 md:px-5">
+                                                    {link.name}
+                                                </Link>
+                                            }
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </SheetContent>
+                    </div>
+                </Sheet>
+            </div>
         </>
     )
 }

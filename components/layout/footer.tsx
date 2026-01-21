@@ -306,12 +306,12 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="fixed bottom-6 right-6 flex gap-3 flex-col">
-                <Link href="tel:+61490820818" className="size-12 bg-[#18c9b0] rounded-full flex justify-center items-center">
-                    <IoCall className="text-white" size={30} />
+            <div className="fixed bottom-3 right-3 md:bottom-6 md:right-6 flex gap-3 flex-col">
+                <Link href="tel:+61490820818" className="size-10 md:size-12 bg-[#18c9b0] rounded-full flex justify-center items-center">
+                    <IoCall className="text-white size-6 md:size-8" size={30} />
                 </Link>
-                <Link href="https://wa.me/61490820818" target="_blank" className="size-12 bg-[#4dc247] rounded-full flex justify-center items-center">
-                    <FaWhatsapp className="text-white" size={30} />
+                <Link href="https://wa.me/61490820818" target="_blank" className="size-10 md:size-12 bg-[#4dc247] rounded-full flex justify-center items-center">
+                    <FaWhatsapp className="text-white size-6 md:size-8" size={30} />
                 </Link>
             </div>
         </footer>
@@ -329,7 +329,7 @@ export const FooterLinks = ({ name, url }: { name: string, url: string }) => {
         <li key={name}>
             <Link
                 href={url}
-                className="text-[#858b99] text-sm transition-all leading-tight duration-300 hover:text-neutral-100"
+                className="text-[#858b99] text-sm transition-all leading-tight duration-200 hover:text-neutral-100"
             >
                 {name}
             </Link>
