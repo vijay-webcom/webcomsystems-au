@@ -297,7 +297,6 @@ export function MenubarDemo() {
                                     <Link href={link.url}>
                                         <MenubarTrigger className={cn("cursor-pointer", isNavSticky ? "text-black" : "text-white")}>
                                             {link?.name}
-
                                             {
                                                 link?.subLinks ? <ChevronDown size={16} className="ms-1" /> : null
                                             }
@@ -310,13 +309,13 @@ export function MenubarDemo() {
                                                     if (subLink.hasChildren && subLink.subLinks) {
                                                         return (
                                                             <MenubarSub key={subLink.name + subLink.url}>
-                                                                <MenubarSubTrigger className={cn("cursor-pointer text-sm font-semibold border-b border-black/20 rounded-none py-2")}>
+                                                                <MenubarSubTrigger className={cn("cursor-pointer text-sm border-b border-black/20 rounded-none py-2")}>
                                                                     {subLink.name}
                                                                 </MenubarSubTrigger>
 
                                                                 <MenubarSubContent>
                                                                     {subLink.subLinks.map((child) => (
-                                                                        <MenubarItem key={child.name + child.url} className={cn("cursor-pointer text-sm font-semibold border-b border-black/20 rounded-none py-2")}>
+                                                                        <MenubarItem key={child.name + child.url} className={cn("cursor-pointer text-sm border-b border-black/20 rounded-none py-2")}>
                                                                             <Link href={child.url}>{child.name}</Link>
                                                                         </MenubarItem>
                                                                     ))}
@@ -326,13 +325,12 @@ export function MenubarDemo() {
                                                     }
 
                                                     return (
-                                                        <MenubarItem key={subLink.name} className={cn("cursor-pointer text-sm font-semibold border-b border-black/20 rounded-none py-2")}>
+                                                        <MenubarItem key={subLink.name} className={cn("cursor-pointer text-sm border-b border-black/20 rounded-none py-2")}>
                                                             <Link href={subLink.url}>{subLink.name}</Link>
                                                         </MenubarItem>
                                                     )
                                                 })}
                                             </MenubarContent>
-
                                         ) : null
                                     }
                                 </MenubarMenu>
