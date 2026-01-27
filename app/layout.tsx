@@ -1,43 +1,41 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google';
 import './globals.css';
 import Footer from '@/components/layout/footer';
 import { MenubarDemo } from '@/components/layout/navbar';
 const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
+    variable: '--font-geist-sans',
+    subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+    variable: '--font-geist-mono',
+    subsets: ['latin'],
 });
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Webcom Systems - AU',
-  description: 'Webcom Systems - AU',
-  icons: {
-    icon: "/favicon.png",
-  },
+    title: 'Webcom Systems - AU',
+    description: 'Webcom Systems - AU',
+    icons: {
+        icon: '/favicon.png',
+    },
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${inter.className} antialiased relative`}
-      >
-        <MenubarDemo />
-        {children}
-        <Footer />
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body className={`${inter.className} relative antialiased`}>
+                <MenubarDemo />
+                {children}
+                <Footer />
+            </body>
+        </html>
+    );
 }
